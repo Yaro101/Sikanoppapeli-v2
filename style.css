@@ -1,0 +1,646 @@
+/* Yleistä LAYOUT */
+@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 400;
+  height: 100vh;
+  color: #333;
+  background-image: linear-gradient(to top left, #753682 0%, #bf2e34 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #f2f2f2;
+  padding: 0.1em;
+  font-size: 1.4em;
+  text-align: center;
+}
+
+/* LAYOUT valittujen pelaajien valikossa */
+.game-selection {
+  position: relative;
+  width: 60rem;
+  height: 45rem;
+  background-color: rgba(255, 255, 255, 0.35);
+  backdrop-filter: blur(200px);
+  filter: blur();
+  box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.25);
+  border-radius: 9px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin-bottom: 30px;
+}
+
+#return-button {
+  position: absolute;
+  top: 2%;
+  left: 1%;
+  cursor: pointer;
+  z-index: 1;
+  width: 6%;
+}
+
+#return-button img {
+  width: 100%; /* Adjust the width to your desired size */
+  height: auto; /* Maintain the aspect ratio */
+}
+
+.noppaLogo {
+  width: 40%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.game-selection > header > h1 {
+  flex: 2;
+  font-size: 5rem;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.game-selection > header > h2 {
+  font-size: 3rem;
+  margin: 15px 0 15px;
+}
+.game-selection > header > h2,
+#choices {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Button CSS credit to 'CSS Scan' */
+.button-85 {
+  padding: 0 0.6em;
+  font-family: 'Nunito';
+  font-weight: bolder;
+  letter-spacing: 0.1cm;
+  width: 32%;
+  height: 1.8em;
+  margin: 0 1.5%;
+  margin-bottom: 10px; /* Lisää marginaali-bottom pystysuoraa välimatkaa varten */
+  border: none;
+  outline: none;
+  color: rgb(255, 255, 255);
+  transition: transform 0.2s, background-color 0.2s;
+  background: #111;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  border-radius: 10px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+.button-85:hover {
+  transform: scale(1.1);
+  background-color: #300b0b;
+  color: #fff;
+}
+
+.button-85:before {
+  content: '';
+  background: linear-gradient(
+    45deg,
+    #ff0000,
+    #ff7300,
+    #fffb00,
+    #48ff00,
+    #00ffd5,
+    #002bff,
+    #7a00ff,
+    #ff00c8,
+    #ff0000
+  );
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(5px);
+  -webkit-filter: blur(5px);
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  animation: glowing-button-85 20s linear infinite;
+  transition: opacity 0.3s ease-in-out;
+  border-radius: 10px;
+}
+
+@keyframes glowing-button-85 {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 400% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+
+.button-85:after {
+  z-index: -1;
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #222;
+  left: 0;
+  top: 0;
+  border-radius: 10px;
+}
+
+/* LAYOUT kahden pelaajan pelitilaa varten */
+.game-section-2 {
+  position: relative;
+  width: 100rem;
+  height: 60rem;
+  background-color: rgba(255, 255, 255, 0.35);
+  backdrop-filter: blur(200px);
+  filter: blur();
+  box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.25);
+  border-radius: 9px;
+  overflow: hidden;
+  display: flex;
+  margin-bottom: 30px;
+}
+
+.player {
+  flex: 50%;
+  padding: 9rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: all 0.75s;
+}
+
+/* LAYOUT kolmen pelaajan pelitilaa varten */
+.game-section-3 {
+  position: relative;
+  width: 110rem;
+  height: 60rem;
+  background-color: rgba(255, 255, 255, 0.35);
+  backdrop-filter: blur(200px);
+  filter: blur();
+  box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.25);
+  border-radius: 9px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+
+/* Tyylit .player-elementtejä varten '.game-section-3' -osion sisällä */
+.game-section-3 .player {
+  flex: 1;
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: all 0.75s;
+}
+.game-section-3 .selectButtons {
+  flex: 0.2;
+  background-color: rgba(255, 255, 255, 0.137);
+  background-image: url('./media/pngwing.com.png');
+  background-size: contain;
+}
+
+/* LAYOUT neljän pelaajan pelitilaa varten */
+.game-section-4 {
+  position: relative;
+  width: 125rem;
+  height: 60rem;
+  background-color: rgba(255, 255, 255, 0.35);
+  backdrop-filter: blur(200px);
+  filter: blur();
+  box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.25);
+  border-radius: 9px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+
+/* Tyylit .player-elementtejä varten '.game-section-4' -osion sisällä */
+.game-section-4 .player {
+  flex: 1;
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: all 0.75s;
+}
+.game-section-4 .selectButtons {
+  flex: 0.2;
+  background-color: rgba(255, 255, 255, 0.137);
+  background-image: url('./media/pngwing.com.png');
+  background-size: contain;
+}
+
+/* LAYOUT viiden pelaajan pelitilaa varten */
+.game-section-5 {
+  position: relative;
+  width: 140rem;
+  height: 60rem;
+  background-color: rgba(255, 255, 255, 0.35);
+  backdrop-filter: blur(200px);
+  filter: blur();
+  box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.25);
+  border-radius: 9px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+
+/* Tyylit .player-elementtejä varten '.game-section-5' -osassa oleville elementeille */
+.game-section-5 .player {
+  flex: 1;
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: all 0.75s;
+}
+.game-section-5 .selectButtons {
+  flex: 0.2;
+  background-color: rgba(255, 255, 255, 0.137);
+  background-image: url('./media/pngwing.com.png');
+  background-size: contain;
+}
+
+/* ELEMENTIT */
+.name {
+  position: relative;
+  font-size: 3.5rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  word-spacing: 2px;
+  font-weight: 300;
+  margin-bottom: 1rem;
+}
+
+.edit-icon {
+  cursor: pointer;
+}
+
+.score {
+  font-size: 9rem;
+  font-weight: 300;
+  color: #c7365f;
+  margin-top: 4rem;
+  margin-bottom: auto;
+}
+
+.player--active {
+  background-color: rgba(255, 255, 255, 0.4);
+}
+.player--active .name {
+  font-weight: 700;
+}
+.player--active .score {
+  font-weight: 400;
+}
+
+.player--active .current {
+  opacity: 1;
+}
+
+.current {
+  background-color: #c7365f;
+  opacity: 0.8;
+  border-radius: 9px;
+  color: #fff;
+  width: 65%;
+  padding: 2rem;
+  text-align: center;
+  transition: all 0.75s;
+}
+
+.current-label {
+  text-transform: uppercase;
+  margin-bottom: 7rem;
+  font-size: 1.7rem;
+  color: #ddd;
+}
+
+.current-score {
+  font-size: 3.5rem;
+}
+
+/* ABSOLUTE POSITIONED ELEMENTS */
+.btn {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #444;
+  background: none;
+  border: none;
+  font-family: inherit;
+  font-size: 1.8rem;
+  text-transform: uppercase;
+  cursor: pointer;
+  font-weight: 400;
+  transition: all 0.2s;
+
+  background-color: white;
+  background-color: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(10px);
+
+  padding: 0.7rem 2.5rem;
+  border-radius: 50rem;
+  box-shadow: 0 1.75rem 3.5rem rgba(0, 0, 0, 0.1);
+}
+
+/* RELATIVE POSITIONED ELEMENTS */
+.game-section-3 > .selectButtons > .btn {
+  position: relative;
+  transform: translateX(-50%);
+  color: #850435c7;
+  background: none;
+  border: none;
+  font-family: inherit;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.2s;
+  background-color: white;
+  background-color: rgba(255, 255, 255, 0.452);
+  backdrop-filter: blur(10px);
+
+  padding: 0.7rem 2rem;
+  border-radius: 50rem;
+  box-shadow: 0 1.75rem 3.5rem rgba(0, 0, 0, 0.1);
+}
+
+.game-section-4 > .selectButtons > .btn {
+  position: relative;
+  transform: translateX(-50%);
+  color: #850453;
+  background: none;
+  border: none;
+  font-family: inherit;
+  font-size: 1.8rem;
+  text-transform: uppercase;
+  cursor: pointer;
+  font-weight: 400;
+  transition: all 0.2s;
+  background-color: white;
+  background-color: rgba(255, 255, 255, 0.452);
+  backdrop-filter: blur(10px);
+
+  padding: 0.7rem 2rem;
+  border-radius: 50rem;
+  box-shadow: 0 1.75rem 3.5rem rgba(0, 0, 0, 0.1);
+}
+
+.game-section-5 > .selectButtons > .btn {
+  position: relative;
+  transform: translateX(-50%);
+  color: #850453;
+  background: none;
+  border: none;
+  font-family: inherit;
+  font-size: 1.8rem;
+  text-transform: uppercase;
+  cursor: pointer;
+  font-weight: 400;
+  transition: all 0.2s;
+  background-color: white;
+  background-color: rgba(255, 255, 255, 0.452);
+  backdrop-filter: blur(10px);
+
+  padding: 0.7rem 2rem;
+  border-radius: 50rem;
+  box-shadow: 0 1.75rem 3.5rem rgba(0, 0, 0, 0.1);
+}
+
+.btn::first-letter {
+  font-size: 2.4rem;
+  display: inline-block;
+  margin-right: 0.7rem;
+}
+
+.btn--new {
+  top: 4rem;
+}
+.btn--roll {
+  top: 39.3rem;
+}
+.btn--hold {
+  top: 46.1rem;
+}
+
+.game-section-3 > .selectButtons > .btn--new {
+  top: 5%;
+}
+.game-section-3 > .selectButtons > .btn--roll {
+  top: 28%;
+}
+.game-section-3 > .selectButtons > .btn--hold {
+  top: 53%;
+}
+
+.game-section-4 > .selectButtons > .btn--new {
+  top: 3%;
+}
+.game-section-4 > .selectButtons > .btn--roll {
+  top: 28%;
+}
+.game-section-4 > .selectButtons > .btn--hold {
+  top: 53%;
+}
+
+.game-section-5 > .selectButtons > .btn--new {
+  top: 4%;
+}
+.game-section-5 > .selectButtons > .btn--roll {
+  top: 27%;
+}
+.game-section-5 > .selectButtons > .btn--hold {
+  top: 51%;
+}
+
+.btn:active {
+  transform: translate(-50%, 3px);
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15);
+}
+
+.btn:focus {
+  outline: none;
+}
+.game-section-3 > .selectButtons > .btn:active {
+  transform: translate(-50%, 3px);
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.37);
+}
+.game-section-3 > .selectButtons > .btn:focus {
+  outline: none;
+}
+
+.game-section-4 > .selectButtons > .btn:active {
+  transform: translate(-50%, 3px);
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.37);
+}
+.game-section-4 > .selectButtons > .btn:focus {
+  outline: none;
+}
+
+.game-section-5 > .selectButtons > .btn:active {
+  transform: translate(-50%, 3px);
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.37);
+}
+.game-section-5 > .selectButtons > .btn:focus {
+  outline: none;
+}
+
+.dice1 {
+  position: absolute;
+  left: 50%;
+  top: 24rem;
+  transform: translateX(-50%);
+  height: 10rem;
+  box-shadow: 0 2rem 5rem rgba(0, 0, 0, 0.2);
+}
+.dice2 {
+  position: absolute;
+  left: 50%;
+  top: 12rem;
+  transform: translateX(-50%);
+  height: 10rem;
+  box-shadow: 0 2rem 5rem rgba(0, 0, 0, 0.2);
+}
+
+.game-section-3 > .dice1 {
+  position: absolute;
+  left: 33.7%;
+  top: 30rem;
+  transform: translateX(-50%);
+  height: 10rem;
+  box-shadow: 0 2rem 5rem rgba(0, 0, 0, 0.842);
+}
+.game-section-3 > .dice2 {
+  position: absolute;
+  left: 54%;
+  top: 24.4rem;
+  transform: translateX(-50%);
+  height: 10rem;
+  box-shadow: 0 2rem 5rem rgba(0, 0, 0, 0.862);
+}
+
+.game-section-4 > .dice1 {
+  position: absolute;
+  left: 37.7%;
+  top: 29.6rem;
+  transform: translateX(-50%);
+  height: 10rem;
+  box-shadow: 0 2rem 5rem rgba(0, 0, 0, 0.842);
+}
+.game-section-4 > .dice2 {
+  position: absolute;
+  left: 47%;
+  top: 26.8rem;
+  transform: translateX(-50%);
+  height: 10rem;
+  box-shadow: 0 2rem 5rem rgba(0, 0, 0, 0.862);
+}
+
+.game-section-5 > .dice1 {
+  position: absolute;
+  left: 38.7%;
+  top: 30rem;
+  transform: translateX(-50%);
+  height: 10rem;
+  box-shadow: 0 2rem 5rem rgba(0, 0, 0, 0.842);
+}
+.game-section-5 > .dice2 {
+  position: absolute;
+  left: 52%;
+  top: 28.4rem;
+  transform: translateX(-50%);
+  height: 10rem;
+  box-shadow: 0 2rem 5rem rgba(0, 0, 0, 0.862);
+}
+
+.player--winner {
+  background-color: #2f2f2f;
+}
+
+.player--winner .name {
+  font-weight: 700;
+  color: #c7365f;
+}
+
+.hidden {
+  display: none;
+}
+
+@media (max-width: 767px) {
+  .game-selection {
+    width: 100%; /* the container full width on small screens */
+    height: auto;
+  }
+
+  .button-85 {
+    width: 40%; /*buttons width on small screens */
+    margin: 10px 0; /*vertical spacing between the buttons */
+    height: 2.9em;
+  }
+
+  .game-selection > header > h1 {
+    font-size: 3rem; /* Adjust h1 font size for better readability on small screens */
+    margin-bottom: 10px; /* Add spacing below h1 */
+  }
+
+  .game-selection > header > h2 {
+    font-size: 2rem; /* Adjust h2 font size for better readability on small screens */
+    margin: 15px 15px; /* Add spacing around h2 */
+  }
+  .game-section-2 {
+    width: 100%; /* Making the container full width on small screens */
+    height: auto;
+  }
+}
+
+/* screens between 768px and 1024px (e.g., tablets) */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .game-selection {
+    width: 90%; /* Making the container slightly narrower for tablets */
+  }
+}
+
+/* screens larger than 1024px (e.g., laptops and desktops) */
+@media (min-width: 1025px) {
+  .game-selection {
+    width: 60rem; /*  original container width for larger screens */
+  }
+}
