@@ -6,7 +6,7 @@ Sika Noppapeli v2 is a JavaScript-based dice game that allows the users to selec
 
 ## Try it here
 
-to be replaced with the link to the game
+[lick here to try Sika noppapeli v2](yaro101.github.io/Sikanoppapeli-v2/)
 
 ## Features
 
@@ -64,7 +64,7 @@ Sika Noppapeli v2 on JavaScript-pohjainen noppapeli, jonka avulla käyttäjät v
 
 ## Kokeile Sika Noppaeli v2 täällä
 
-to be replaced with the link to the game
+[ Sika noppapeli v2](yaro101.github.io/Sikanoppapeli-v2/)
 
 ## Ominaisuudet
 
