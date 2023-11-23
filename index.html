@@ -8,8 +8,8 @@
     <title>Sika Noppapeli v2</title>
   </head>
   <body>
-    <main>
-      <!-- Player select section -->
+    <main id="content">
+      <!-- Game select section -->
       <div id="game-select" class="game-selection">
         <header>
           <h1>Sika Noppapeli</h1>
@@ -21,236 +21,33 @@
           <h2>Valitse kuinka monta pelaajaa</h2>
         </header>
         <div id="choices">
-          <button
-            class="button-85"
-            role="button"
-            onclick="playSelectSound(); selectPlayers(2)"
-          >
+          <button class="button-85" role="button" onclick="selectPlayers(2)">
             🎲 2 🎲 Pelaajaa
           </button>
-          <button
-            class="button-85"
-            role="button"
-            onclick="playSelectSound(); selectPlayers(3)"
-          >
+          <button class="button-85" role="button" onclick="selectPlayers(3)">
             🎲 3 🎲 Pelaajaa
           </button>
-          <button
-            class="button-85"
-            role="button"
-            onclick="playSelectSound(); selectPlayers(4)"
-          >
+          <button class="button-85" role="button" onclick="selectPlayers(4)">
             🎲 4 🎲 Pelaajaa
           </button>
-          <button
-            class="button-85"
-            role="button"
-            onclick="playSelectSound(); selectPlayers(5)"
-          >
+          <button class="button-85" role="button" onclick="selectPlayers(5)">
             🎲 5 🎲 Pelaajaa
           </button>
         </div>
       </div>
+      <div id="game"></div>
 
-      <!-- Retun button to players selection -->
-      <div id="return-button" class="return-button">
+      <!-- Retun button to players select section -->
+      <div id="return-button" class="return-button hidden">
         <img src="./media/arrow-left.png" alt="Return Icon" />
       </div>
-
-      <!-- Two players mode -->
-      <div id="game-content-2" class="game-section-2 hidden">
-        <section class="player player--0 player--active">
-          <h2 class="name" id="name--0">
-            Pelaaja1 <i class="edit-icon" onclick="renamePlayer(0)">✏️</i>
-          </h2>
-          <p class="score" id="score--0">43</p>
-          <div class="current">
-            <p class="current-label">Nykyinen</p>
-            <p class="current-score" id="current--0">0</p>
-          </div>
-        </section>
-        <section class="player player--1">
-          <h2 class="name" id="name--1">
-            Pelaaja2 <i class="edit-icon" onclick="renamePlayer(1)">✏️</i>
-          </h2>
-          <p class="score" id="score--1">24</p>
-          <div class="current">
-            <p class="current-label">Nykyinen</p>
-            <p class="current-score" id="current--1">0</p>
-          </div>
-        </section>
-
-        <img src="./media/dice-5.png" alt="Playing dice" class="dice1" />
-        <img src="./media/dice-5.png" alt="Playing dice" class="dice2" />
-        <button class="btn btn--new">🔄 Uusi peli</button>
-        <button class="btn btn--roll">🎲 Heitä noppia</button>
-        <button class="btn btn--hold">📥 Pidä</button>
-      </div>
-
-      <!-- Three players mode -->
-      <div id="game-content-3" class="game-section-3 hidden">
-        <section class="player player--0 player--active">
-          <h2 class="name" id="name--0">
-            Pelaaja1 <i class="edit-icon" onclick="renamePlayer(0)">✏️</i>
-          </h2>
-          <p class="score" id="score--0">43</p>
-          <div class="current">
-            <p class="current-label">Nykyinen</p>
-            <p class="current-score" id="current--0">0</p>
-          </div>
-        </section>
-        <section class="player player--1">
-          <h2 class="name" id="name--1">
-            Pelaaja2 <i class="edit-icon" onclick="renamePlayer(1)">✏️</i>
-          </h2>
-          <p class="score" id="score--1">24</p>
-          <div class="current">
-            <p class="current-label">Nykyinen</p>
-            <p class="current-score" id="current--1">0</p>
-          </div>
-        </section>
-        <section class="player player--2">
-          <h2 class="name" id="name--2">
-            Pelaaja3 <i class="edit-icon" onclick="renamePlayer(2)">✏️</i>
-          </h2>
-          <p class="score" id="score--2">30</p>
-          <div class="current">
-            <p class="current-label">Nykyinen</p>
-            <p class="current-score" id="current--2">0</p>
-          </div>
-        </section>
-        <section class="player selectButtons">
-          <button class="btn btn--new">🔄 Uusi peli</button>
-          <button class="btn btn--roll">🎲 Heitä noppia</button>
-          <button class="btn btn--hold">📥 Pidä</button>
-        </section>
-
-        <img src="./media/dice-5.png" class="dice1" />
-        <img src="./media/dice-5.png" class="dice2" />
-      </div>
-
-      <!-- 4 Players mode -->
-      <div id="game-content-4" class="game-section-4 hidden">
-        <section class="player player--0 player--active">
-          <h2 class="name" id="name--0">
-            Pelaaja1 <i class="edit-icon" onclick="renamePlayer(0)">✏️</i>
-          </h2>
-          <p class="score" id="score--0">43</p>
-          <div class="current">
-            <p class="current-label">Nykyinen</p>
-            <p class="current-score" id="current--0">0</p>
-          </div>
-        </section>
-        <section class="player player--1">
-          <h2 class="name" id="name--1">
-            Pelaaja2 <i class="edit-icon" onclick="renamePlayer(1)">✏️</i>
-          </h2>
-          <p class="score" id="score--1">24</p>
-          <div class="current">
-            <p class="current-label">Nykyinen</p>
-            <p class="current-score" id="current--1">0</p>
-          </div>
-        </section>
-        <section class="player player--2">
-          <h2 class="name" id="name--2">
-            Pelaaja3 <i class="edit-icon" onclick="renamePlayer(2)">✏️</i>
-          </h2>
-          <p class="score" id="score--2">30</p>
-          <div class="current">
-            <p class="current-label">Nykyinen</p>
-            <p class="current-score" id="current--2">0</p>
-          </div>
-        </section>
-        <section class="player player--3">
-          <h2 class="name" id="name--3">
-            Pelaaja4 <i class="edit-icon" onclick="renamePlayer(3)">✏️</i>
-          </h2>
-          <p class="score" id="score--3">53</p>
-          <div class="current">
-            <p class="current-label">Nykyinen</p>
-            <p class="current-score" id="current--3">0</p>
-          </div>
-        </section>
-        <section class="player selectButtons">
-          <button class="btn btn--new">🔄 Uusi peli</button>
-          <button class="btn btn--roll">🎲 Heitä noppia</button>
-          <button class="btn btn--hold">📥 Pidä</button>
-        </section>
-
-        <img src="./media/dice-5.png" class="dice1" />
-        <img src="./media/dice-5.png" class="dice2" />
-      </div>
-
-      <!-- 5 Player mode -->
-      <div id="game-content-5" class="game-section-5 hidden">
-        <section class="player player--0 player--active">
-          <h2 class="name" id="name--0">
-            Pelaaja1 <i class="edit-icon" onclick="renamePlayer(0)">✏️</i>
-          </h2>
-          <p class="score" id="score--0">43</p>
-          <div class="current">
-            <p class="current-label">Nykyinen</p>
-            <p class="current-score" id="current--0">0</p>
-          </div>
-        </section>
-        <section class="player player--1">
-          <h2 class="name" id="name--1">
-            Pelaaja2 <i class="edit-icon" onclick="renamePlayer(1)">✏️</i>
-          </h2>
-          <p class="score" id="score--1">24</p>
-          <div class="current">
-            <p class="current-label">Nykyinen</p>
-            <p class="current-score" id="current--1">0</p>
-          </div>
-        </section>
-        <section class="player player--2">
-          <h2 class="name" id="name--2">
-            Pelaaja3 <i class="edit-icon" onclick="renamePlayer(2)">✏️</i>
-          </h2>
-          <p class="score" id="score--2">30</p>
-          <div class="current">
-            <p class="current-label">Nykyinen</p>
-            <p class="current-score" id="current--2">0</p>
-          </div>
-        </section>
-        <section class="player player--3">
-          <h2 class="name" id="name--3">
-            Pelaaja4 <i class="edit-icon" onclick="renamePlayer(3)">✏️</i>
-          </h2>
-          <p class="score" id="score--3">53</p>
-          <div class="current">
-            <p class="current-label">Nykyinen</p>
-            <p class="current-score" id="current--3">0</p>
-          </div>
-        </section>
-        <section class="player player--4">
-          <h2 class="name" id="name--4">
-            Pelaaja5 <i class="edit-icon" onclick="renamePlayer(4)">✏️</i>
-          </h2>
-          <p class="score" id="score--4">13</p>
-          <div class="current">
-            <p class="current-label">Nykyinen</p>
-            <p class="current-score" id="current--4">0</p>
-          </div>
-        </section>
-        <section class="player selectButtons">
-          <button class="btn btn--new">🔄 Uusi peli</button>
-          <button class="btn btn--roll">🎲 Heitä noppia</button>
-          <button class="btn btn--hold">📥 Pidä</button>
-        </section>
-
-        <img src="./media/dice-5.png" class="dice1" />
-        <img src="./media/dice-5.png" class="dice2" />
-      </div>
     </main>
-
+    <!-- The footer -->
     <div id="footer">
       <p>&copy; 2023 Yahya Rouissi #412 JavaScript: Sikanoppapeli</p>
     </div>
 
-    <!-- <audio id="hover-sound">
-      <source src="./media/stop-13692.mp3" type="audio/mpeg" />
-    </audio> -->
+    <!-- the audio files -->
     <audio id="select-sound">
       <source src="./media/stop-13692.mp3" />
     </audio>
@@ -269,15 +66,7 @@
     <audio id="new-sound">
       <source src="./media/interface-124464.mp3" type="audio/mpeg" />
     </audio>
-    <script src="script.js"></script>
+
+    <script src="main.js"></script>
   </body>
 </html>
-
-<!-- Icon return to game selection credit to 'Arrow left by By Hexagon075' -->
-<!-- button-85 By CSS Scan -->
-<!-- Sound Effect 'hover-click-button.mp3' by 666HeroHero from Pixabay -->
-<!-- Sound Effect 'interface.mp3' by UNIVERSFIELD from Pixabay -->
-<!-- Sound Effect 'decidemp3-14575.mp3' from Pixabay -->
-<!-- Sound Effect 'dice-on-a-wooden-floor-87441.mp3' from Pixabay -->
-<!-- Sound Effect 'item-equip-6904.mp3' from Pixabay -->
-<!-- Sound Effect 'stop-13692.mp3' by irinairinafomicheva from Pixabay -->
